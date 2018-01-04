@@ -1,0 +1,14 @@
+ErrorDocument 400 https://playclustertruck.com/error/
+ErrorDocument 401 https://playclustertruck.com/error/
+ErrorDocument 403 https://playclustertruck.com/error/
+ErrorDocument 404 https://playclustertruck.com/error/
+ErrorDocument 503 https://playclustertruck.com/error/
+php_value display_errors On
+php_flag magic_quotes 1
+php_flag magic_quotes_gpc 1
+php_value mbstring.http_input auto
+php_value date.timezone Europe/Amsterdam
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
